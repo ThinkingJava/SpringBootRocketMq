@@ -58,7 +58,6 @@ public class ConsumerListen {
 
             //设置Consumer第一次启动是从队列头部开始消费还是队列尾部开始消费
             //如果非第一次启动，那么按照上次消费的位置继续消费
-
             consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
             consumer.registerMessageListener(new MessageListenerConcurrently() {
                 @Override
@@ -67,23 +66,13 @@ public class ConsumerListen {
                         for (MessageExt messageExt : list) {
 
                             System.out.println("messageExt: " + messageExt);//输出消息内容
-
                             String messageBody = new String(messageExt.getBody(), "utf-8");
                             if(!StringUtils.isEmpty(messageBody)){
-//                                TestTwoPo temp = new TestTwoPo();
-//                                temp.setId(messageBody);
                                 TestTwoPo testOnePo = new TestTwoPo();
                                 testOnePo.setId(messageBody);
                                 testOnePo.setName("1");
                                 testOnePo.setXgrq(new Date());
-//                                int s=0,count=0;
-//                                while(s!=1){
                                 ymqOneBaseDao.update(testOnePo);
-//                                    count++;
-
-//                                }
-//                                System.out.println("更新次数:"+count);
-//                                Thread.sleep(100);
                             }
                             System.out.println("消费响应：Msg: " + messageExt.getMsgId() + ",msgBody: " + messageBody);//输出消息内容
 

@@ -19,7 +19,7 @@
 		<commons.io.version>2.5</commons.io.version>
 
 		<druid.version>1.1.2</druid.version>
-		<pagehelper.version>4.1.6</pagehelper.version>
+		<pagehelper.version>5.3.1</pagehelper.version>
 		<commons-lang3.version>3.4</commons-lang3.version>
 		<fastjson.version>1.2.4</fastjson.version>
 		<commons-beanutils.version>1.9.2</commons-beanutils.version>
